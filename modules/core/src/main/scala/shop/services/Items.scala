@@ -1,5 +1,6 @@
 package main.scala.shop.services
 
+import main.scala.shop.domain.item.{CreateItem, Item, ItemId, UpdateItem}
 import shop.domain.brand.BrandName
 
 trait Items[F[_]] {

@@ -123,6 +123,7 @@ libraryDependencies ++= Seq(
   "com.olegpy" %% "meow-mtl-effects" % "0.4.0",
   "io.estatico" %% "newtype" % "0.4.3",
   "eu.timepit" %% "refined" % "0.9.12",
+  "org.typelevel" %% "squants" % "1.6.0",
   "com.github.julien-truffaut" %% "monocle-core" % "2.0.1",
   "com.github.julien-truffaut" %% "monocle-macro" % "2.0.1"
 )

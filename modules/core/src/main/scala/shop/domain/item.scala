@@ -3,6 +3,7 @@ package main.scala.shop.domain
 import io.estatico.newtype.macros.newtype
 import main.scala.shop.domain.category.{Category, CategoryId}
 import shop.domain.brand.{Brand, BrandId}
+import squants.market.Money
 
 import java.util.UUID
 

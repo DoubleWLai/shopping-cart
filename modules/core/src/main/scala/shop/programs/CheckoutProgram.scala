@@ -1,12 +1,11 @@
-package main.scala.shop.domain.programs
+package shop.programs
 
 import cats.Monad
-import main.scala.shop.domain.cart.CartTotal
-import main.scala.shop.domain.checkout.Card
-import main.scala.shop.domain.order.OrderId
-import main.scala.shop.domain.payment.Payment
-import main.scala.shop.domain.user.UserId
-import main.scala.shop.services.{Orders, PaymentClient, ShoppingCart}
+import shop.domain.checkout.Card
+import shop.domain.order.OrderId
+import shop.domain.payment.Payment
+import shop.domain.user.UserId
+import shop.services.{Orders, PaymentClient, ShoppingCart}
 
 final class CheckoutProgram[F[_]: Monad](
     paymentClient: PaymentClient[F],
@@ -17,8 +16,9 @@ final class CheckoutProgram[F[_]: Monad](
   def checkout(userId: UserId, card: Card): F[OrderId] =
     for {
       cart <- shoppingCart.get(userId)
-      paymentId <- paymentClient.process(Payment(userId, cart.total, card))
-    } yield
-
+//      paymentId <- paymentClient.process(Payment(userId, cart.total, card))
+//      orderId <- orders.create(userId, paymentId, cart.items, cart.total)
+//      _ <- shoppingCart.delete(userId)
+    } yield cart
 
 }

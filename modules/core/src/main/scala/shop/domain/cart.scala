@@ -1,7 +1,7 @@
-package main.scala.shop.domain
+package shop.domain
 
 import io.estatico.newtype.macros.newtype
-import main.scala.shop.domain.item.{Item, ItemId}
+import shop.domain.item.{Item, ItemId}
 import squants.market.Money
 
 import java.util.UUID

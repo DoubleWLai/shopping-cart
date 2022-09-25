@@ -1,4 +1,4 @@
-package main.scala.shop.domain
+package shop.domain
 
 import io.estatico.newtype.macros.newtype
 

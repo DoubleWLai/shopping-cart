@@ -1,6 +1,6 @@
-package main.scala.shop.services
+package shop.services
 
-import main.scala.shop.domain.user.{PassWord, User, UserId, UserName}
+import shop.domain.user.{PassWord, User, UserId, UserName}
 
 trait Users[F[_]] {
 

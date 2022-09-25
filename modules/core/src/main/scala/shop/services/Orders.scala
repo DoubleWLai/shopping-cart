@@ -1,8 +1,8 @@
-package main.scala.shop.services
+package shop.services
 
-import main.scala.shop.domain.cart.CartItem
-import main.scala.shop.domain.order.{Order, OrderId, PaymentId}
-import main.scala.shop.domain.user.UserId
+import shop.domain.cart.CartItem
+import shop.domain.order.{Order, OrderId, PaymentId}
+import shop.domain.user.UserId
 import squants.market.Money
 
 trait Orders[F[_]] {

@@ -1,7 +1,7 @@
-package main.scala.shop.domain
+package shop.domain
 
-import main.scala.shop.domain.checkout.Card
-import main.scala.shop.domain.user.UserId
+import shop.domain.checkout.Card
+import shop.domain.user.UserId
 import squants.market.Money
 
 object payment {

@@ -1,7 +1,7 @@
-package main.scala.shop.services
+package shop.services
 
-import main.scala.shop.domain.order.PaymentId
-import main.scala.shop.domain.payment.Payment
+import shop.domain.order.PaymentId
+import shop.domain.payment.Payment
 
 trait PaymentClient[F[_]] {
 

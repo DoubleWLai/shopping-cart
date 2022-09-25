@@ -1,8 +1,8 @@
-package main.scala.shop.services
+package shop.services
 
-import main.scala.shop.domain.cart.{Cart, CartTotal, Quantity}
-import main.scala.shop.domain.item.ItemId
-import main.scala.shop.domain.user.UserId
+import shop.domain.cart.{Cart, CartTotal, Quantity}
+import shop.domain.item.ItemId
+import shop.domain.user.UserId
 
 trait ShoppingCart[F[_]] {
 

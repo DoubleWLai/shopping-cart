@@ -1,6 +1,6 @@
-package main.scala.shop.services
+package shop.services
 
-import main.scala.shop.domain.category.{Category, CategoryName}
+import shop.domain.category.{Category, CategoryName}
 
 trait Categories[F[_]] {
 

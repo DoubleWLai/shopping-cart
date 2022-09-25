@@ -1,6 +1,6 @@
-package main.scala.shop.services
+package shop.services
 
-import main.scala.shop.domain.user.{JwtToken, PassWord, User, UserName}
+import shop.domain.user.{JwtToken, PassWord, User, UserName}
 
 trait Auth[F[_]] {
 

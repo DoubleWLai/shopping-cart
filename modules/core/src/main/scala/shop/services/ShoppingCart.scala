@@ -2,6 +2,7 @@ package main.scala.shop.services
 
 import main.scala.shop.domain.cart.{Cart, CartTotal, Quantity}
 import main.scala.shop.domain.item.ItemId
+import main.scala.shop.domain.user.UserId
 
 trait ShoppingCart[F[_]] {
 

@@ -109,7 +109,7 @@ ThisBuild / scalaVersion := "2.13.0"
 lazy val core = (project in file("modules/core"))
   .settings(
     name := "shopping-cart-core",
-    scalacOptions ++= List("-Ymacro-annotations", "-Yrangepos", "-Wconf:cat=unused:info"),
+    scalacOptions ++= List("-Ymacro-annotations", "-Yrangepos"),
     resolvers += Resolver.sonatypeRepo("snapshots"),
     libraryDependencies ++= Seq(
       compilerPlugin(

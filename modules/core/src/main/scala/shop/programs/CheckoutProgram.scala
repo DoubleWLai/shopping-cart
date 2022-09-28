@@ -18,6 +18,7 @@ final class CheckoutProgram[F[_]](
       cart <- shoppingCart.get(userId)
       paymentId <- paymentClient.process(Payment(userId, cart.total, card))
       orderId <- orders.create(userId, paymentId, cart.items, cart.total)
-      _ <- shoppingCart.delete(userId)
+      _ <- shoppingCart.delete(userId).attempt.void
     } yield orderId
+
 }

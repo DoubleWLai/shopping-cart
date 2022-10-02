@@ -10,12 +10,18 @@ import shop.domain.order.{OrderId, PaymentId}
 import shop.domain.payment.Payment
 import shop.domain.user.UserId
 import shop.services.{Orders, PaymentClient, ShoppingCart}
+import retry.RetryPolicies._
+import cats.syntax.all._
+
+import scala.concurrent.duration.DurationInt
 
 final class CheckoutProgram[F[_]: Logger](
     paymentClient: PaymentClient[IO],
     shoppingCart: ShoppingCart[IO],
     orders: Orders[IO]
 ) {
+
+  val retryPolicy = limitRetries[IO](3) |+| exponentialBackoff[IO](10.milliseconds)
 
 //  def retry[A](fa: F[A]): F[A] = Timer[F]
 

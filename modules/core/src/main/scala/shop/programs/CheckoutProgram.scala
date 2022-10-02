@@ -1,5 +1,6 @@
 package shop.programs
 
+import cats.MonadThrow
 import cats.effect.IO
 import org.typelevel.log4cats.Logger
 import retry.RetryDetails.{GivingUp, WillDelayAndRetry}
@@ -10,7 +11,7 @@ import shop.domain.payment.Payment
 import shop.domain.user.UserId
 import shop.services.{Orders, PaymentClient, ShoppingCart}
 
-final class CheckoutProgram[F[_]](
+final class CheckoutProgram[F[_]: Logger](
     paymentClient: PaymentClient[IO],
     shoppingCart: ShoppingCart[IO],
     orders: Orders[IO]

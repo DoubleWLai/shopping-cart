@@ -12,8 +12,16 @@ object user {
 
   @newtype case class PassWord(value: String)
 
+  @newtype case class EncryptedPassword(value: String)
+
   @newtype case class JwtToken(value: String)
 
   case class User(id: UserId, name: UserName)
+
+  case class UserWithPassword(
+      id: UserId,
+      name: UserName,
+      password: EncryptedPassword
+  )
 
 }

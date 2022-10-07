@@ -1,11 +1,11 @@
 package shop.services
 
-import shop.domain.user.{PassWord, User, UserId, UserName}
+import shop.domain.user.{EncryptedPassword, UserId, UserName, UserWithPassword}
 
 trait Users[F[_]] {
 
-  def find(username: UserName, password: PassWord): F[Option[User]]
+  def find(username: UserName): F[Option[UserWithPassword]]
 
-  def create(username: UserName, password: PassWord): F[UserId]
+  def create(username: UserName, password: EncryptedPassword): F[UserId]
 
 }

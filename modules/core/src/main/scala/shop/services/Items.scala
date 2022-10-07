@@ -11,7 +11,7 @@ trait Items[F[_]] {
 
   def findById(itemId: ItemId): F[Option[Item]]
 
-  def create(item: CreateItem): F[Unit]
+  def create(item: CreateItem): F[ItemId]
 
   def update(item: UpdateItem): F[Unit]
 

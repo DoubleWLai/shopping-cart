@@ -1,5 +1,6 @@
 package shop.services
 
+import cats.data.NonEmptyList
 import shop.domain.cart.CartItem
 import shop.domain.order.{Order, OrderId, PaymentId}
 import shop.domain.user.UserId
@@ -14,7 +15,7 @@ trait Orders[F[_]] {
   def create(
       userId: UserId,
       paymentId: PaymentId,
-      items: List[CartItem],
+      items: NonEmptyList[CartItem],
       total: Money
   ): F[OrderId]
 

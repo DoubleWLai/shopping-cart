@@ -6,6 +6,7 @@ import shop.domain.item.ItemId
 import squants.market.Money
 
 import java.util.UUID
+import scala.util.control.NoStackTrace
 
 object order {
 
@@ -19,5 +20,8 @@ object order {
       items: Map[ItemId, Quantity],
       total: Money
   )
+
+  // TODO: what is NoStackTrace
+  case object EmptyCartError extends NoStackTrace
 
 }

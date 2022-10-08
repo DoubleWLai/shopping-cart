@@ -27,5 +27,6 @@ final class Checkout[F[_]: MonadThrow](
       its <- ensureNonEmpty(c.items)
       pid <- payments.process(Payment(userId, c.total, card))
       oid <- orders.create(userId, pid, its, c.total)
+      _ <- cart.delete(userId).attempt.void
     } yield oid
 }

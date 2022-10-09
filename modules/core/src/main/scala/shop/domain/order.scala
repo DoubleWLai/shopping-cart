@@ -1,5 +1,7 @@
 package shop.domain
 
+import derevo.cats.show
+import derevo.derive
 import io.estatico.newtype.macros.newtype
 import shop.domain.cart.Quantity
 import shop.domain.item.ItemId
@@ -12,6 +14,7 @@ object order {
 
   @newtype case class OrderId(uuid: UUID)
 
+  @derive(show)
   @newtype case class PaymentId(uuid: UUID)
 
   case class Order(
@@ -21,7 +24,15 @@ object order {
       total: Money
   )
 
-  // TODO: what is NoStackTrace
+
   case object EmptyCartError extends NoStackTrace
+
+
+  sealed trait OrderOrPaymentError extends NoStackTrace {
+    def cause: String
+  }
+
+  case class OrderError(cause: String) extends OrderOrPaymentError
+  case class PaymentError(cause: String) extends OrderOrPaymentError
 
 }

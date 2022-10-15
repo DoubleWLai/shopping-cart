@@ -13,11 +13,12 @@ import shop.retries.{Retriable, Retry}
 import shop.services._
 import org.typelevel.log4cats.Logger
 import shop.domain.cart.CartItem
+import shop.effects.Background
 import squants.market.Money
 
 import scala.concurrent.duration._
 
-final class Checkout[F[_]: MonadThrow: Retry: Logger](
+final class Checkout[F[_]: MonadThrow: Retry: Logger: Background](
     payments: PaymentClient[F],
     cart: ShoppingCart[F],
     orders: Orders[F],
@@ -53,8 +54,10 @@ final class Checkout[F[_]: MonadThrow: Retry: Logger](
         case _ =>
           Logger[F].error(
             s"Failed to create order for: ${paymentId.show}"
-          ) *> Background[F]
+          ) *> Background[F].schedule(bgAction(fa), 1.hour)
       }
+
+    bgAction(action)
   }
 
   val retryPolicy =

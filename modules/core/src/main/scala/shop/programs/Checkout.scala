@@ -60,9 +60,6 @@ final class Checkout[F[_]: MonadThrow: Retry: Logger: Background](
     bgAction(action)
   }
 
-  val retryPolicy =
-    limitRetries[F](3) |+| exponentialBackoff[F](10.milliseconds)
-
   def process(userId: UserId, card: Card): F[OrderId] =
     for {
       c <- cart.get(userId)

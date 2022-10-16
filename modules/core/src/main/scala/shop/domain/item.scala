@@ -1,5 +1,7 @@
 package shop.domain
 
+import derevo.circe.magnolia.{decoder, encoder}
+import derevo.derive
 import io.estatico.newtype.macros.newtype
 import shop.domain.brand.{Brand, BrandId}
 import shop.domain.category.{Category, CategoryId}
@@ -15,6 +17,7 @@ object item {
 
   @newtype case class ItemDescription(value: String)
 
+  @derive(decoder, encoder)
   case class Item(
       uuid: ItemId,
       name: ItemName,
